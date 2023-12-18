@@ -1,11 +1,23 @@
 import React from "react";
+import { ReportHandler } from "web-vitals";
 
-function TodoForm() {
+type test = {
+  content: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handlerSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+};
+
+function TodoForm({ content, handleChange, handlerSubmit }: test) {
   return (
     <div>
-      <form>
-        <input type="text" />
-        <button>등록</button>
+      <form onSubmit={handlerSubmit}>
+        <input
+          type="text"
+          name="content"
+          value={content}
+          onChange={handleChange}
+        />
+        <button type="submit">등록</button>
       </form>
     </div>
   );

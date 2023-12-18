@@ -2,10 +2,12 @@ body {
   box-sizing: border-box;
   margin: 0;
 }
-div {
+
+div > .imgWrap {
   display: inline-block;
+  margin-left: 20px;
 }
 
-div .imgWrap {
-  margin-left: 20px;
+div .imgWrap img {
+  cursor: pointer;
 }

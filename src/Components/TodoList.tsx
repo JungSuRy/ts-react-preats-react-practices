@@ -1,6 +1,8 @@
 import React from "react";
+import { todoProps } from "../App";
 
-function TodoList() {
+function TodoList({ todos }: { todos: todoProps[] }) {
+  console.log(todos);
   return (
     <div>
       <ul>
