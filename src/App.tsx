@@ -40,6 +40,19 @@ function App() {
     setTodo([...todos, { id: maxid, content: content, toggle: false }]);
   };
 
+  const handlerToggle = (id: number) => {
+    const modify_todo = todos.map((todo, id) => {
+      if (todo.id === id) {
+        todo.toggle = !todo.toggle;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+
+    setTodo(modify_todo);
+  };
+
   return (
     <div className="App">
       <TodoList todos={todos} />

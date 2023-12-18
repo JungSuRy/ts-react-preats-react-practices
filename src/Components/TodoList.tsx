@@ -5,10 +5,17 @@ function TodoList({ todos }: { todos: todoProps[] }) {
   console.log(todos);
   return (
     <div>
-      <ul>
-        <li>Ract학습</li>
-        <li>Typescript 학습</li>
-      </ul>
+      {todos.length !== 0 ? (
+        <ul>
+          {todos.map((todo) => (
+            <li>{todo.content}</li>
+          ))}
+        </ul>
+      ) : (
+        <div>
+          <span>등록된 일정이 없습니다.</span>
+        </div>
+      )}
     </div>
   );
 }
