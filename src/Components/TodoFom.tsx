@@ -1,5 +1,4 @@
-import React from "react";
-import { ReportHandler } from "web-vitals";
+import React, { memo } from "react";
 
 type test = {
   content: string;
@@ -8,6 +7,7 @@ type test = {
 };
 
 function TodoForm({ content, handleChange, handlerSubmit }: test) {
+  console.log("form render");
   return (
     <div>
       <form onSubmit={handlerSubmit}>

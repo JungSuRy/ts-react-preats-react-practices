@@ -45,7 +45,7 @@ function Gallery({
 
 ## 2. REACT TYPESCRIPT TODOList 앱 만들기
 
-typescript에서는 useState 사용 방법
+#### typescript에서는 useState 사용 방법
 
 ```javascript
 //기본
@@ -73,7 +73,7 @@ export interface todoProps {
  const [todos, setTodo] = useState<todoProps[]>([]);
 ```
 
-setState에서 push 사용시 에러 발생
+##### setState에서 push 사용시 에러 발생
 
 ```javascript
 //typscript 전에는 문제 없이 사용가능하였는데
@@ -90,4 +90,25 @@ setTodo(
 //push함수는 숫자를 반환한다고한다. setTodo함수는 void이다
 //아래처럼 변경하니 잘된다.
 setTodo([...todos, { id: maxid, content: content, toggle: false }]);
+```
+
+#### li태그 onClick ={핸들러명} 설정 시에러
+
+li onclick에 마우스를 가져다 되보면
+
+```javascipt
+
+'(id: number) => void' 형식은 'MouseEventHandler<HTMLLIElement>' 형식에 할당할 수 없습니다.
+  'id' 및 'event' 매개 변수의 형식이 호환되지 않습니다.
+    'MouseEvent<HTMLLIElement, MouseEvent>' 형식은 'number' 형식에 할당할 수 없습니다.
+```
+
+에러 발생
+검색을 통해 아래 방법을 통해 해결
+
+##### ※ event에 어떤타입을 설정해줘야하는지 확인하는 가장 쉬운 방법
+
+```javascript
+//이벤트 핸드러를 함수표현식으로 따로 선언하지 않고 인라인으로 작성한 후 이벤트 핸들러의 event 매개변수 위로 마우스를 가져다대면 TS는 이벤트 타입이 무엇인지 표시해준다.
+ <li onClick={(event) => console.log(event)}>
 ```

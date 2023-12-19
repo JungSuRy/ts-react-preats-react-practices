@@ -2,7 +2,7 @@ body {
   box-sizing: border-box;
   margin: 0;
 }
-
+/*
 div > .imgWrap {
   display: inline-block;
   margin-left: 20px;
@@ -10,4 +10,16 @@ div > .imgWrap {
 
 div .imgWrap img {
   cursor: pointer;
+}
+*/
+
+div ul {
+}
+div li {
+  cursor: pointer;
+  list-style: none;
+}
+
+div ul .todoLine span {
+  text-decoration: line-through;
 }

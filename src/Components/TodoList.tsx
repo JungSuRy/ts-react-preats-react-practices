@@ -1,14 +1,29 @@
-import React from "react";
+import React, { memo } from "react";
 import { todoProps } from "../App";
 
-function TodoList({ todos }: { todos: todoProps[] }) {
-  console.log(todos);
+type Listprops = {
+  todos: todoProps[];
+  handlerToggle: (
+    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    id: number
+  ) => void;
+};
+
+function TodoList({ todos, handlerToggle }: Listprops) {
+  console.log("list render");
   return (
     <div>
       {todos.length !== 0 ? (
         <ul>
           {todos.map((todo) => (
-            <li>{todo.content}</li>
+            //<li key={todo.id} onClick={handlerToggle.bind(null, todo.id)}>
+            <li
+              key={todo.id}
+              onClick={(event) => handlerToggle(event, todo.id)}
+              className={todo.toggle ? "todoLine" : "NonLine"}
+            >
+              <span>{todo.content}</span>
+            </li>
           ))}
         </ul>
       ) : (
@@ -20,4 +35,4 @@ function TodoList({ todos }: { todos: todoProps[] }) {
   );
 }
 
-export default TodoList;
+export default memo(TodoList);
