@@ -1,6 +1,7 @@
 body {
   box-sizing: border-box;
   margin: 0;
+  height: 100%;
 }
 /*
 div > .imgWrap {
@@ -12,7 +13,13 @@ div .imgWrap img {
   cursor: pointer;
 }
 */
-
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 div ul {
 }
 div li {
